@@ -1,6 +1,7 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core;
 
 import com.migramcas.layaed.architecture.finsalud.entity.base.Entity;
+import com.migramcas.layaed.architecture.finsalud.entity.core.Enum.TransactionType;
 import lombok.Builder;
 import lombok.Data;
 
