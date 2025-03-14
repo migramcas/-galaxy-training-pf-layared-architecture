@@ -1,8 +1,8 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core;
 
 import com.migramcas.layaed.architecture.finsalud.entity.base.Entity;
-import com.migramcas.layaed.architecture.finsalud.entity.core.Enum.GoalPriority;
-import com.migramcas.layaed.architecture.finsalud.entity.core.Enum.GoalType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalPriority;
+import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
 import lombok.Builder;
 import lombok.Data;
 

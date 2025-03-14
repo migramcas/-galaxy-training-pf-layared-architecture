@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.entity.core.Enum;
+package com.migramcas.layaed.architecture.finsalud.entity.core.enums;
 
 import lombok.Getter;
 
