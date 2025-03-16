@@ -1,6 +1,5 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.goals;
 
-
 import com.migramcas.layaed.architecture.finsalud.service.base.ProcessingService;
 
 @FunctionalInterface
