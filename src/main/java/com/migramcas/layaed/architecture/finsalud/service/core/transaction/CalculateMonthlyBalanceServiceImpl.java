@@ -6,6 +6,8 @@ import com.migramcas.layaed.architecture.finsalud.service.base.ServiceException;
 
 public class CalculateMonthlyBalanceServiceImpl implements CalculateMonthlyBalanceService<User, Plan> {
 
+
+
     @Override
     public Plan execute(User user) throws ServiceException {
         return null;
