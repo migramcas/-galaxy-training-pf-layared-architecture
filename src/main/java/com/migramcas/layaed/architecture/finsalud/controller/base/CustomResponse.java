@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.controller.base;
 
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomResponse {
+public class CustomResponse<T> {
 
     private LocalDateTime timestamp;
     private Integer httpCode;
     private String message;
-    private Object payload;
+    private T payload;
 
 }
