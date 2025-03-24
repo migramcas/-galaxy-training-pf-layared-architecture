@@ -4,14 +4,12 @@ import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateInvestmentGoalDto;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateSavingGoalDto;
 import com.migramcas.layaed.architecture.finsalud.entity.core.Goal;
-import com.migramcas.layaed.architecture.finsalud.service.base.ServiceException;
-import com.migramcas.layaed.architecture.finsalud.service.core.goals.FinancialGoalTrackingService;
+import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +22,10 @@ public interface GoalController {
 
     @Operation(summary = "Registra una meta de ahorro")
     @PostMapping(value = ENDPOINT_SAVING_GOAL)
-    ResponseEntity<CustomResponse<Goal>> createSavingGoal(@Valid @RequestBody CreateSavingGoalDto dto) throws ServiceException;
+    ResponseEntity<CustomResponse<Goal>> createSavingGoal(
+            @Valid @RequestBody CreateSavingGoalDto dto,
+            HttpServletRequest request
+            ) throws ServiceException;
 
 
     @Operation(summary = "Registra una meta de inversión")

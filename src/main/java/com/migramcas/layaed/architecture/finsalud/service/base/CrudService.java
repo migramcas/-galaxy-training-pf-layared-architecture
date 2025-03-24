@@ -1,5 +1,7 @@
 package com.migramcas.layaed.architecture.finsalud.service.base;
 
+import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
+
 import java.util.List;
 import java.util.Optional;
 

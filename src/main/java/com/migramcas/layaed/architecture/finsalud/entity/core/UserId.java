@@ -6,7 +6,9 @@ import lombok.Value;
 @Value
 public class UserId {
 
-    @NonNull
     Integer value;
 
+    public static UserId of (Integer value) {
+        return new UserId(value);
+    }
 }

@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.service.base;
+package com.migramcas.layaed.architecture.finsalud.service.exception;
 
 public class ServiceException extends Exception {
 

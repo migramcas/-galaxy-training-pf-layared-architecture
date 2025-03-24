@@ -6,4 +6,5 @@ import com.migramcas.layaed.architecture.finsalud.service.base.ProcessingService
 
 @FunctionalInterface
 public interface FinancialGoalTrackingService extends ProcessingService<CreateGoalCommand, Goal> {
+
 }

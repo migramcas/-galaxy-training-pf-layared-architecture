@@ -6,22 +6,31 @@ import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateInvestmentGoalDto;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateSavingGoalDto;
 import com.migramcas.layaed.architecture.finsalud.entity.core.Goal;
+import com.migramcas.layaed.architecture.finsalud.entity.core.User;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
-import com.migramcas.layaed.architecture.finsalud.service.base.ServiceException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import com.migramcas.layaed.architecture.finsalud.service.core.goals.FinancialGoalTrackingService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.migramcas.layaed.architecture.finsalud.controller.middleware.SessionMiddleware.SESSION_USER_PARAM;
+
 @RestController
 public class GoalControllerImpl extends BaseController implements GoalController {
 
-    @Autowired
     private FinancialGoalTrackingService financialGoalTrackingService;
 
+    @Autowired
+    public GoalControllerImpl(FinancialGoalTrackingService financialGoalTrackingService) {
+        this.financialGoalTrackingService = financialGoalTrackingService;
+    }
+
     @Override
-    public ResponseEntity<CustomResponse<Goal>> createSavingGoal(CreateSavingGoalDto dto)
+    public ResponseEntity<CustomResponse<Goal>> createSavingGoal(CreateSavingGoalDto dto, HttpServletRequest request)
             throws ServiceException {
+        User user = (User) request.getAttribute(SESSION_USER_PARAM);
         CreateGoalCommand cmd = CreateGoalCommand.builder()
                 .startDate(dto.getStartDate())
                 .endDate(dto.getEndDate())
