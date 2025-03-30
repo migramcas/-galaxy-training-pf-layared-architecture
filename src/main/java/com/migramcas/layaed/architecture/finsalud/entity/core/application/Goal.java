@@ -1,8 +1,8 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.application;
 
-import com.migramcas.layaed.architecture.finsalud.entity.base.BaseEntity;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalPriority;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.BaseEntity;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

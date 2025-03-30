@@ -20,7 +20,7 @@ public class LoginUserServiceImpl implements LoginService<LoginDto, String> {
     @Override
     public String execute(LoginDto dto) throws UserNotFoundException {
         User user = userRepository
-                .getByUserName(dto.getUsername())
+                .getByEmail(dto.getEmail())
                 .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado"));
 
         return tokenManager.createToken(user);

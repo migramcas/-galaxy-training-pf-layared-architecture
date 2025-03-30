@@ -37,7 +37,7 @@ public class TokenManagerJWTImpl implements TokenManager {
 
         Map<String, String> payload = new HashMap<>();
         payload.put(CLAIM_ID, String.valueOf(user.getId().getValue()));
-        payload.put(CLAIM_USERNAME, user.getUserName());
+        payload.put(CLAIM_USERNAME, user.getEmail());
 
         return builder()
                 .claims(payload)

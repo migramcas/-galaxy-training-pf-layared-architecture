@@ -18,7 +18,7 @@ public interface UserRepository extends GenericRepository<User, UserId> {
     @Query("select u from User u where u.id = :id")
     Optional<User> getUserById(@Param("id") UserId id);
 
-    @Query("select u from User u where u.userName = :username")
-    Optional<User> getByUserName(@Param("username") String username);
+    @Query("select u from User u where u.email = :email")
+    Optional<User> getByEmail(@Param("email") String email);
 
 }

@@ -1,13 +1,14 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.identity;
 
-import com.migramcas.layaed.architecture.finsalud.entity.base.BaseEntity;
+import com.migramcas.layaed.architecture.finsalud.repository.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
+
 
 @Data
-@Builder
+@SuperBuilder
 @Table(name = "users")
 @Entity
 @AllArgsConstructor
@@ -18,8 +19,8 @@ public class User extends BaseEntity {
     @Column(name = "user_id")
     private UserId id;
 
-    @Column(name = "username")
-    private String userName;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "name")
     private String name;
@@ -31,5 +32,19 @@ public class User extends BaseEntity {
     private String secondLastName;
 
     protected User() {
+        super();
+    }
+
+    public static User of(UserDto dto) {
+        return User.builder()
+                .id(UserId.of(dto.id()))
+                .email(dto.email())
+                .name(dto.name())
+                .firstLastName("")
+                .secondLastName("")
+                .active(true)
+                .createdAt(dto.creationAt())
+                .updatedAt(dto.updatedAt())
+                .build();
     }
 }
