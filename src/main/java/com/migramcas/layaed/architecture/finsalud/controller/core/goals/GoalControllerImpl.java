@@ -8,8 +8,8 @@ import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateSavingGoa
 import com.migramcas.layaed.architecture.finsalud.entity.core.Goal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.User;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
-import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import com.migramcas.layaed.architecture.finsalud.service.core.goals.FinancialGoalTrackingService;
+import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,4 +44,5 @@ public class GoalControllerImpl extends BaseController implements GoalController
     public ResponseEntity<CustomResponse<Goal>> createInvestmentGoal(CreateInvestmentGoalDto dto) {
         return null;
     }
+
 }

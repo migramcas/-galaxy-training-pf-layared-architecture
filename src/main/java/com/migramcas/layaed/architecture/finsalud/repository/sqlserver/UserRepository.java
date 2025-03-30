@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.repository;
+package com.migramcas.layaed.architecture.finsalud.repository.sqlserver;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.User;
 

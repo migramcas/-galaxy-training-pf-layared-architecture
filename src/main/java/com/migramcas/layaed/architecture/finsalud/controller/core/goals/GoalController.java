@@ -24,9 +24,7 @@ public interface GoalController {
     @PostMapping(value = ENDPOINT_SAVING_GOAL)
     ResponseEntity<CustomResponse<Goal>> createSavingGoal(
             @Valid @RequestBody CreateSavingGoalDto dto,
-            HttpServletRequest request
-            ) throws ServiceException;
-
+            HttpServletRequest request) throws ServiceException;
 
     @Operation(summary = "Registra una meta de inversión")
     @PostMapping(ENDPOINT_INVESTMENT_GOAL)

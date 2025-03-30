@@ -1,0 +1,7 @@
+#SQL Server
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=*galaxy12345*" -p 1433:1433 --name sqlserver2019 -v sqlserver-data:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2019-latest
+
+
+# MySql
+docker run -e "MYSQL_ROOT_PASSWORD=*galaxy12345*" -e "MYSQL_DATABASE=galaxy-layared-arch" -e "MYSQL_USER=usuario" -e "MYSQL_PASSWORD=*galaxy12345*" -p 3307:3307 --name mysql8 -v mysql-data:/var/lib/mysql -d mysql:8.0
+

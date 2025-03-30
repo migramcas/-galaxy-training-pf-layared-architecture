@@ -4,7 +4,7 @@ import com.migramcas.layaed.architecture.finsalud.controller.dto.LoginDto;
 import com.migramcas.layaed.architecture.finsalud.entity.core.User;
 import com.migramcas.layaed.architecture.finsalud.entity.core.UserId;
 import com.migramcas.layaed.architecture.finsalud.exception.UserNotFoundException;
-import com.migramcas.layaed.architecture.finsalud.repository.UserRepository;
+import com.migramcas.layaed.architecture.finsalud.repository.sqlserver.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
