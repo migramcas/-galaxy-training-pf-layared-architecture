@@ -36,6 +36,7 @@ public class GoalControllerImpl extends BaseController implements GoalController
                 .endDate(dto.getEndDate())
                 .type(GoalType.of(dto.getType()))
                 .totalAmount(dto.getTotalAmount())
+                .user(user)
                 .build();
         return success(financialGoalTrackingService.execute(cmd));
     }
