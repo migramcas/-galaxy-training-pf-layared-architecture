@@ -10,6 +10,8 @@ public class User extends Entity {
 
     private UserId id;
 
+    private String userName;
+
     private String name;
 
     private String firstLastName;
