@@ -3,7 +3,7 @@ package com.migramcas.layaed.architecture.finsalud.controller.core.goals;
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateInvestmentGoalDto;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateSavingGoalDto;
-import com.migramcas.layaed.architecture.finsalud.entity.core.Goal;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletRequest;

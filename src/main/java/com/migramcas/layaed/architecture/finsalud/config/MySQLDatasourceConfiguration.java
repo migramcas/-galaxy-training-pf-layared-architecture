@@ -47,7 +47,7 @@ public class MySQLDatasourceConfiguration {
 
 		return builder
 				.dataSource(dataSource)
-				.packages("com.migramcas.layaed.architecture.finsalud.entity.mysql")
+				.packages("com.migramcas.layaed.architecture.finsalud.entity.core.application")
 				.persistenceUnit("mysql")
 				.build();
 	}

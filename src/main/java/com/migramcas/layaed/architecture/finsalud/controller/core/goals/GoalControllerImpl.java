@@ -5,9 +5,9 @@ import com.migramcas.layaed.architecture.finsalud.controller.base.BaseController
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateInvestmentGoalDto;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateSavingGoalDto;
-import com.migramcas.layaed.architecture.finsalud.entity.core.Goal;
-import com.migramcas.layaed.architecture.finsalud.entity.core.User;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
 import com.migramcas.layaed.architecture.finsalud.service.core.goals.FinancialGoalTrackingService;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;

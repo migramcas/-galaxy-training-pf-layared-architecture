@@ -20,9 +20,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "sqlServerEntityManagerFactory",
         transactionManagerRef = "sqlServerTransactionManager",
-        basePackages = {
-                "com.migramcas.layaed.architecture.finsalud.repository.sqlserver"
-        }
+        basePackages = {"com.migramcas.layaed.architecture.finsalud.repository.sqlserver"}
 )
 public class SQLServerDatasourceConfiguration {
 
@@ -43,7 +41,7 @@ public class SQLServerDatasourceConfiguration {
                                                                            @Qualifier("sqlServerDatasource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.migramcas.layaed.architecture.finsalud.repository.sqlserver")
+                .packages("com.migramcas.layaed.architecture.finsalud.entity.core.identity")
                 .persistenceUnit("sqlserver")
                 .build();
     }

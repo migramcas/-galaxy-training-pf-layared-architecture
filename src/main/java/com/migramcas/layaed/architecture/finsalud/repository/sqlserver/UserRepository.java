@@ -1,13 +1,22 @@
 package com.migramcas.layaed.architecture.finsalud.repository.sqlserver;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.User;
+
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
+import com.migramcas.layaed.architecture.finsalud.repository.base.GenericRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface UserRepository {
+@Repository
+public interface UserRepository extends GenericRepository<User, UserId> {
 
-    Optional<User> getById(String id);
+    @Query("select u from User u where u.id = :id")
+    Optional<User> getUserById(@Param("id") UserId id);
 
-    Optional<User> getByUserName(String username);
+    @Query("select u from User u where u.userName = :username")
+    Optional<User> getByUserName(@Param("username") String username);
 
 }

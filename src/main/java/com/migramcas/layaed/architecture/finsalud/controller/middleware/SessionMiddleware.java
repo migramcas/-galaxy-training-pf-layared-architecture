@@ -1,7 +1,7 @@
 package com.migramcas.layaed.architecture.finsalud.controller.middleware;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.User;
-import com.migramcas.layaed.architecture.finsalud.entity.core.UserId;
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManager;
 import com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManagerJWTImpl;
 import jakarta.servlet.http.HttpServletRequest;

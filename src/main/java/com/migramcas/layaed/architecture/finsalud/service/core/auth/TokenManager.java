@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.auth;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.User;
+import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
 
 public interface TokenManager {
 
