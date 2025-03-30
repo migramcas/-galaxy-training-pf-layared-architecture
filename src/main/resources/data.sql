@@ -124,3 +124,6 @@ INSERT
 IGNORE INTO transaction_type (id, description) VALUES (1, 'Ingreso');
 INSERT
 IGNORE INTO transaction_type (id, description) VALUES (2, 'Gasto');
+
+
+

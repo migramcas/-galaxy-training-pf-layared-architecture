@@ -22,14 +22,6 @@ public class LoginUserServiceImpl implements LoginService<LoginDto, String> {
         User user = userRepository
                 .getByUserName(dto.getUsername())
                 .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado"));
-//
-//        User user = User.builder()
-//                .id(UserId.of(1))
-//                .userName("migramcas")
-//                .name("Miguel")
-//                .firstLastName("Pérez")
-//                .secondLastName("Juárez")
-//                .build();
 
         return tokenManager.createToken(user);
     }
