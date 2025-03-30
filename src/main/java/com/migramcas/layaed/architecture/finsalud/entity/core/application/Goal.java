@@ -6,22 +6,23 @@ import com.migramcas.layaed.architecture.finsalud.entity.core.identity.BaseEntit
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
 @Data
-@Builder
+@SuperBuilder
 @Table(name = "Goal")
 @Entity
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Goal extends BaseEntity {
 
-    @Id
+    @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private GoalId id;
 
     @Column(name = "user_id")

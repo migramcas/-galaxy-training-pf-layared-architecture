@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Data
 @Builder
-public class CreateGoalCommand {
+public class GoalCommand {
 
     private User user;
 

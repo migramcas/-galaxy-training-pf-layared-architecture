@@ -1,10 +1,10 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.goals;
 
-import com.migramcas.layaed.architecture.finsalud.command.CreateGoalCommand;
+import com.migramcas.layaed.architecture.finsalud.command.GoalCommand;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.service.base.ProcessingService;
 
 @FunctionalInterface
-public interface FinancialGoalTrackingService extends ProcessingService<CreateGoalCommand, Goal> {
+public interface CreateGoalService extends ProcessingService<GoalCommand, Goal> {
 
 }

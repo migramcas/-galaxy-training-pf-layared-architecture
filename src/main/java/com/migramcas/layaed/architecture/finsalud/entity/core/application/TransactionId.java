@@ -1,5 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.application;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 public class TransactionId implements Serializable {
 
     @NonNull
+    @Column(name = "transaction_id")
     private Integer value;
 
     // Constructor
@@ -23,6 +25,10 @@ public class TransactionId implements Serializable {
     }
 
     protected TransactionId() {
+    }
+
+    public static TransactionId of(Integer id) {
+        return new TransactionId(id);
     }
 
 }

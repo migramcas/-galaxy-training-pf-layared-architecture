@@ -1,37 +1,38 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.goals;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
-import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionId;
+import com.migramcas.layaed.architecture.finsalud.command.GoalCommand;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 
 import java.util.List;
 import java.util.Optional;
 
-public class GoalServiceImpl implements GoalService {
+public class GoalServiceImpl implements GoalService<Goal, GoalCommand, GoalId> {
+
 
     @Override
-    public List<Transaction> getAll() throws ServiceException {
+    public List<Goal> getAll() throws ServiceException {
         return null;
     }
 
     @Override
-    public Optional<Transaction> getById(TransactionId transactionId) throws ServiceException {
+    public Optional<Goal> getById(GoalId goalId) throws ServiceException {
         return Optional.empty();
     }
 
     @Override
-    public void add(Transaction transaction) throws ServiceException {
-
+    public GoalCommand add(Goal goal) throws ServiceException {
+        return null;
     }
 
     @Override
-    public void update(Transaction transaction) throws ServiceException {
-
+    public GoalCommand update(Goal goal) throws ServiceException {
+        return null;
     }
 
     @Override
-    public void delete(Transaction transaction) throws ServiceException {
+    public void delete(Goal goal) throws ServiceException {
 
     }
-    
 }

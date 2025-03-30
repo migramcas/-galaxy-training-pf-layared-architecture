@@ -5,22 +5,25 @@ import com.migramcas.layaed.architecture.finsalud.entity.core.identity.BaseEntit
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "Transaction")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Transaction extends BaseEntity {
 
     @EmbeddedId
-    @Column(name = "transaction_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private TransactionId id;
+
+    @Embedded
+    private GoalId goalId;
 
     @Column(name = "user_id")
     private UserId userId;
