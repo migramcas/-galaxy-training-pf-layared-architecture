@@ -34,12 +34,12 @@ public interface GoalController {
             @ApiResponse(
                     responseCode = "200",
                     description = "Guardar nueva meta de ahorro exitosamente",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = DetailSavingGoal.class))}
             ),
             @ApiResponse(
                     responseCode = "500",
                     description = "Error al guardar una nueva meta",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = DetailSavingGoal.class))}
             )
     })
     @PostMapping(value = ENDPOINT_SAVING_GOAL)
@@ -51,12 +51,12 @@ public interface GoalController {
             @ApiResponse(
                     responseCode = "200",
                     description = "Guardar nueva meta de inversión exitosamente",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = DetailInvestmentGoalDto.class))}
             ),
             @ApiResponse(
                     responseCode = "500",
                     description = "Error al guardar una nueva meta de inversión",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = DetailInvestmentGoalDto.class))}
             )
     })
     @PostMapping(ENDPOINT_INVESTMENT_GOAL)
@@ -68,12 +68,12 @@ public interface GoalController {
             @ApiResponse(
                     responseCode = "200",
                     description = "Calcular la salud por una meta",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = FinancialHealth.class))}
             ),
             @ApiResponse(
                     responseCode = "500",
                     description = "Error al consultar la salud de una meta",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = FinancialHealth.class))}
             )
     })
     @PostMapping(ENDPOINT_GOAL_HEALTH)

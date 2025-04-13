@@ -24,12 +24,12 @@ public interface BalanceController {
             @ApiResponse(
                     responseCode = "200",
                     description = "Consultar el balance del usuario para la fecha consultada",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = BalanceDTO.class))}
             ),
             @ApiResponse(
                     responseCode = "500",
                     description = "Error al consultar la información del de transacciones",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = BalanceDTO.class))}
             )
     })
     @GetMapping(value = ENDPOINT_MONTHLY_BALANCE)

@@ -27,12 +27,12 @@ public interface TransactionController {
             @ApiResponse(
                     responseCode = "200",
                     description = "Registrar una nueva transacción",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Transaction.class))}
             ),
             @ApiResponse(
                     responseCode = "500",
                     description = "Error al registrar una nueva transacción",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Transaction.class))}
             )
     })
     @PostMapping(value = ENDPOINT_TRANSACTION)
