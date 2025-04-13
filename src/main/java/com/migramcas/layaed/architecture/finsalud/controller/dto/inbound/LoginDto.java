@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.controller.dto;
+package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
 public class LoginDto {
 

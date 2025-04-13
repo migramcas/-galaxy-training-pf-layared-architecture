@@ -5,7 +5,7 @@ public class RestEndpoints {
     public static final String ENDPOINT_AUTH_PREFIX = "/auth";
     public static final String ENDPOINT_LOGIN = "/login";
     public static final String ENDPOINT_SAVING_GOAL = "/v1/meta/saving";
-    public static final String ENDPOINT_INVESTMENT_GOAL = "/v1/meta/inversion";
+    public static final String ENDPOINT_INVESTMENT_GOAL = "/v1/meta/investment";
 
     public static final String ENDPOINT_TRANSACTION = "/v1/transaction";
 

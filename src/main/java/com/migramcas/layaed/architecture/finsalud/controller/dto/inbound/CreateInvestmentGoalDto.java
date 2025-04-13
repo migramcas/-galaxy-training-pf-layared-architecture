@@ -1,9 +1,11 @@
-package com.migramcas.layaed.architecture.finsalud.controller.dto;
+package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+
+import java.math.BigDecimal;
 
 public class CreateInvestmentGoalDto extends CreateGoalDto {
 
@@ -15,8 +17,8 @@ public class CreateInvestmentGoalDto extends CreateGoalDto {
     protected Integer projectedMonths;
 
     @Min(value = 1, message = "La tasa anualizada debe ser mínimo 1%")
-    @Max(value = 30, message = "La tasa máxima anulizada de rendimientos es máximo 20%")
-    protected Float performacePercentage;
+    @Max(value = 30, message = "La tasa máxima anulizada de rendimientos es máximo 30%")
+    protected BigDecimal performacePercentage;
 
     public CreateInvestmentGoalDto() {
         super();
@@ -30,7 +32,7 @@ public class CreateInvestmentGoalDto extends CreateGoalDto {
         return projectedMonths;
     }
 
-    public Float getPerformacePercentage() {
+    public BigDecimal getPerformacePercentage() {
         return performacePercentage;
     }
 
@@ -42,7 +44,7 @@ public class CreateInvestmentGoalDto extends CreateGoalDto {
         this.projectedMonths = projectedMonths;
     }
 
-    public void setPerformacePercentage(Float performacePercentage) {
+    public void setPerformacePercentage(BigDecimal performacePercentage) {
         this.performacePercentage = performacePercentage;
     }
 }

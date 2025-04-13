@@ -25,5 +25,8 @@ public class GoalCommand {
 
     private GoalPriority priority;
 
+    private Integer projectedMonths;
+
+    private BigDecimal performacePercentage;
 
 }

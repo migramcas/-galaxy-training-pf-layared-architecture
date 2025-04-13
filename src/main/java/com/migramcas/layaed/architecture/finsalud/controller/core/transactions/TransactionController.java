@@ -1,7 +1,7 @@
 package com.migramcas.layaed.architecture.finsalud.controller.core.transactions;
 
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
-import com.migramcas.layaed.architecture.finsalud.controller.dto.AddTransactionDto;
+import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.AddTransactionDto;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;

@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.controller.dto;
+package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

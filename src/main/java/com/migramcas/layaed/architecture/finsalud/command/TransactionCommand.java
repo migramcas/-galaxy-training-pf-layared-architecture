@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.controller.dto;
+package com.migramcas.layaed.architecture.finsalud.command;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;

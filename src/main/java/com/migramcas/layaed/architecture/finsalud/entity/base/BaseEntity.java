@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.entity.core.identity;
+package com.migramcas.layaed.architecture.finsalud.entity.base;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

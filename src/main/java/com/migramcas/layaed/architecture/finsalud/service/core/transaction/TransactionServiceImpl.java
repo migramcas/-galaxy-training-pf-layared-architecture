@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.transaction;
 
-import com.migramcas.layaed.architecture.finsalud.controller.dto.TransactionCommand;
+import com.migramcas.layaed.architecture.finsalud.command.TransactionCommand;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionId;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.TransactionRepository;

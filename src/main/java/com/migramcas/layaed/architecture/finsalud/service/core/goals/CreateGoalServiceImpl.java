@@ -30,6 +30,8 @@ public class CreateGoalServiceImpl implements CreateGoalService {
                 .totalAmount(goalCommand.getTotalAmount())
                 .type(goalCommand.getType())
                 .priority(goalCommand.getPriority())
+                .projectedMonths(goalCommand.getProjectedMonths())
+                .performacePercentage(goalCommand.getPerformacePercentage())
                 .active(true)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())

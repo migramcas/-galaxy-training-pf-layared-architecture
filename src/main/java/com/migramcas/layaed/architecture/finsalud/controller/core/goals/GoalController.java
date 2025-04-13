@@ -1,10 +1,11 @@
 package com.migramcas.layaed.architecture.finsalud.controller.core.goals;
 
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
-import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateInvestmentGoalDto;
-import com.migramcas.layaed.architecture.finsalud.controller.dto.CreateSavingGoalDto;
-import com.migramcas.layaed.architecture.finsalud.controller.dto.HealthByGoalDto;
-import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
+import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.CreateInvestmentGoalDto;
+import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.CreateSavingGoalDto;
+import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.HealthByGoalDto;
+import com.migramcas.layaed.architecture.finsalud.controller.dto.outbond.DetailInvestmentGoalDto;
+import com.migramcas.layaed.architecture.finsalud.controller.dto.outbond.DetailSavingGoal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHealth;
 import com.migramcas.layaed.architecture.finsalud.exception.ConsultaNoAutorizadaException;
 import com.migramcas.layaed.architecture.finsalud.exception.GoalNotFoundException;
@@ -26,12 +27,13 @@ public interface GoalController {
 
     @Operation(summary = "Registra una meta de ahorro")
     @PostMapping(value = ENDPOINT_SAVING_GOAL)
-    ResponseEntity<CustomResponse<Goal>> createSavingGoal(
+    ResponseEntity<CustomResponse<DetailSavingGoal>> createSavingGoal(
             @Valid @RequestBody CreateSavingGoalDto dto, HttpServletRequest request) throws ServiceException;
 
     @Operation(summary = "Registra una meta de inversión")
     @PostMapping(ENDPOINT_INVESTMENT_GOAL)
-    ResponseEntity<CustomResponse<Goal>> createInvestmentGoal(@Valid @RequestBody CreateInvestmentGoalDto dto);
+    ResponseEntity<CustomResponse<DetailInvestmentGoalDto>> createInvestmentGoal(@Valid @RequestBody CreateInvestmentGoalDto dto,
+                                                                                 HttpServletRequest request) throws ServiceException;
 
     @Operation(summary = "Calcular salud")
     @PostMapping(ENDPOINT_GOAL_HEALTH)

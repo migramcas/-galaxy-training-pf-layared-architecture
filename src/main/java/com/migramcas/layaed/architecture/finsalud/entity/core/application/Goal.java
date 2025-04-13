@@ -1,8 +1,8 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.application;
 
+import com.migramcas.layaed.architecture.finsalud.entity.base.BaseEntity;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalPriority;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
-import com.migramcas.layaed.architecture.finsalud.entity.core.identity.BaseEntity;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -43,6 +43,12 @@ public class Goal extends BaseEntity {
     @Column(name = "priority")
     @Enumerated(EnumType.STRING)
     private GoalPriority priority;
+
+    @Column(name = "projectedMonths")
+    private Integer projectedMonths;
+
+    @Column(name = "performacePercentage")
+    private BigDecimal performacePercentage;
 
     protected Goal() {
     }

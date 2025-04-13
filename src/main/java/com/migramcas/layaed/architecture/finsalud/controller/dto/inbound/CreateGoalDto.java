@@ -1,16 +1,13 @@
-package com.migramcas.layaed.architecture.finsalud.controller.dto;
+package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import static com.migramcas.layaed.architecture.finsalud.controller.utils.EndpointConstant.DATE_FORMAT;
 

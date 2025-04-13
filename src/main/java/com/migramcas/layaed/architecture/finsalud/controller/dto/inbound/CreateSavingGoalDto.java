@@ -1,12 +1,6 @@
-package com.migramcas.layaed.architecture.finsalud.controller.dto;
+package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class CreateSavingGoalDto extends  CreateGoalDto {
 
