@@ -5,11 +5,11 @@ import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHealth;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;
-import com.migramcas.layaed.architecture.finsalud.exception.ConsultaNoAutorizadaException;
-import com.migramcas.layaed.architecture.finsalud.exception.GoalNotFoundException;
-import com.migramcas.layaed.architecture.finsalud.exception.SinTransaccionesRegistradasException;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.GoalRepository;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.TransactionRepository;
+import com.migramcas.layaed.architecture.finsalud.service.exception.ConsultaNoAutorizadaException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.GoalNotFoundException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.SinTransaccionesRegistradasException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

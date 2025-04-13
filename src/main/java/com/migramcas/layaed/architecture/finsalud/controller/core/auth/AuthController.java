@@ -2,7 +2,7 @@ package com.migramcas.layaed.architecture.finsalud.controller.core.auth;
 
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.LoginDto;
-import com.migramcas.layaed.architecture.finsalud.exception.UserNotFoundException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.UserNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;

@@ -15,13 +15,13 @@ import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHea
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalPriority;
 import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
-import com.migramcas.layaed.architecture.finsalud.exception.ConsultaNoAutorizadaException;
-import com.migramcas.layaed.architecture.finsalud.exception.GoalNotFoundException;
-import com.migramcas.layaed.architecture.finsalud.exception.SinTransaccionesRegistradasException;
 import com.migramcas.layaed.architecture.finsalud.mapper.base.GenericMapper;
 import com.migramcas.layaed.architecture.finsalud.service.core.finantialhealth.CalculateFinancialHealthByGoal;
 import com.migramcas.layaed.architecture.finsalud.service.core.goals.CreateGoalService;
+import com.migramcas.layaed.architecture.finsalud.service.exception.ConsultaNoAutorizadaException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.GoalNotFoundException;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.SinTransaccionesRegistradasException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

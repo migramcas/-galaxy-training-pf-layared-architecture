@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Data
 @AllArgsConstructor
@@ -38,6 +39,21 @@ public class Transaction extends BaseEntity {
     private BigDecimal amount;
 
     protected Transaction() {
-
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Transaction that = (Transaction) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
 }

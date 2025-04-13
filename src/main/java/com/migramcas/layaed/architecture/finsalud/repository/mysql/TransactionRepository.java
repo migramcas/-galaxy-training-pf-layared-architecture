@@ -18,4 +18,7 @@ public interface TransactionRepository extends GenericRepository<Transaction, Tr
     @Query("SELECT t FROM Transaction t WHERE t.goalId = :goalId")
     List<Transaction> getAllByGoalId(GoalId goalId);
 
+    @Query("SELECT t FROM Transaction t WHERE t.goalId IN :goalsIds")
+    List<Transaction> getAllByGoals(List<GoalId> goalsIds);
+
 }
