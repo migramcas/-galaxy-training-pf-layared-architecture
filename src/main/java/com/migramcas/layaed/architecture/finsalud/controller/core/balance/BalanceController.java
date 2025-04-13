@@ -4,6 +4,10 @@ import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse
 import com.migramcas.layaed.architecture.finsalud.service.core.dto.BalanceDTO;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +19,19 @@ import static com.migramcas.layaed.architecture.finsalud.controller.base.RestEnd
 @RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 public interface BalanceController {
 
-    @Operation(summary = "Obtener el blance de gastos e ingresos")
+    @Operation(summary = "Obtener el balance de gastos e ingresos")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Consultar el balance del usuario para la fecha consultada",
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Error al consultar la información del de transacciones",
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}
+            )
+    })
     @GetMapping(value = ENDPOINT_MONTHLY_BALANCE)
     ResponseEntity<CustomResponse<BalanceDTO>> getBalanceMonthly(HttpServletRequest request) throws ServiceException;
 
