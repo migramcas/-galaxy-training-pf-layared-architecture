@@ -36,7 +36,7 @@ public interface TransactionController {
             )
     })
     @PostMapping(value = ENDPOINT_TRANSACTION)
-    ResponseEntity<CustomResponse<Transaction>> registerTransaction(@Valid @RequestBody AddTransactionDto dto,
-            HttpServletRequest request) throws ServiceException;
+    ResponseEntity<CustomResponse<Transaction>> registerTransaction(
+            @Valid @RequestBody AddTransactionDto dto, HttpServletRequest request) throws ServiceException;
 
 }

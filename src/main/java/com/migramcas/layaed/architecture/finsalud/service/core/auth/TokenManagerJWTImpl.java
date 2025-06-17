@@ -3,6 +3,7 @@ package com.migramcas.layaed.architecture.finsalud.service.core.auth;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -17,7 +18,8 @@ import static io.jsonwebtoken.Jwts.parser;
 @Service
 public class TokenManagerJWTImpl implements TokenManager {
 
-    private static final String KEY = "ClaveSecreta_Segura-a65s-@4d6asd132!asd1&6as4dq(3q)wed";
+    @Value("${spring.token.secret.key}")
+    private static String KEY;
 
     public static final String CLAIM_ID = "id";
     public static final String CLAIM_USERNAME = "username";

@@ -1,7 +1,7 @@
 package com.migramcas.layaed.architecture.finsalud.controller.core.balance;
 
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
-import com.migramcas.layaed.architecture.finsalud.service.core.dto.BalanceDTO;
+import com.migramcas.layaed.architecture.finsalud.service.dto.BalanceDTO;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,7 +28,7 @@ public interface BalanceController {
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "Error al consultar la información del de transacciones",
+                    description = "Error al consultar la información de transacciones",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = BalanceDTO.class))}
             )
     })

@@ -1,14 +1,14 @@
 package com.migramcas.layaed.architecture.finsalud.controller.core.transactions;
 
-import com.migramcas.layaed.architecture.finsalud.command.TransactionCommand;
 import com.migramcas.layaed.architecture.finsalud.controller.base.BaseController;
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.AddTransactionDto;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionId;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionType;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
+import com.migramcas.layaed.architecture.finsalud.service.command.TransactionCommand;
 import com.migramcas.layaed.architecture.finsalud.service.core.transaction.TransactionService;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ import static com.migramcas.layaed.architecture.finsalud.controller.middleware.S
 @RestController
 public class TransactionControllerImpl extends BaseController implements TransactionController {
 
-    TransactionService<TransactionCommand, Transaction, TransactionId> transactionService;
+    private final TransactionService<TransactionCommand, Transaction, TransactionId> transactionService;
 
     @Autowired
     public TransactionControllerImpl(TransactionService transactionService) {
@@ -29,7 +29,8 @@ public class TransactionControllerImpl extends BaseController implements Transac
     }
 
     @Override
-    public ResponseEntity<CustomResponse<Transaction>> registerTransaction(AddTransactionDto dto, HttpServletRequest request) throws ServiceException {
+    public ResponseEntity<CustomResponse<Transaction>> registerTransaction(
+            AddTransactionDto dto, HttpServletRequest request) throws ServiceException {
         User user = (User) request.getAttribute(SESSION_USER_PARAM);
         TransactionCommand command = TransactionCommand.builder()
                 .goalId(GoalId.of(dto.getGoalId()))
@@ -38,7 +39,9 @@ public class TransactionControllerImpl extends BaseController implements Transac
                 .amount(dto.getAmount())
                 .user(user)
                 .build();
-        return success(transactionService.add(command));
+
+        Transaction newTransaction = transactionService.add(command);
+        return success(newTransaction);
     }
 
 }

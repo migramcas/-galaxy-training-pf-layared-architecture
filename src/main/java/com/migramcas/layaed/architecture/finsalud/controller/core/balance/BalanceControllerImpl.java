@@ -4,7 +4,7 @@ import com.migramcas.layaed.architecture.finsalud.controller.base.BaseController
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
 import com.migramcas.layaed.architecture.finsalud.service.core.balance.CalculateBalanceByDate;
-import com.migramcas.layaed.architecture.finsalud.service.core.dto.BalanceDTO;
+import com.migramcas.layaed.architecture.finsalud.service.dto.BalanceDTO;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import static com.migramcas.layaed.architecture.finsalud.controller.middleware.S
 @RestController
 public class BalanceControllerImpl extends BaseController implements BalanceController {
 
-    CalculateBalanceByDate calculateBalanceByDate;
+    private final CalculateBalanceByDate calculateBalanceByDate;
 
     @Autowired
     public BalanceControllerImpl(CalculateBalanceByDate calculateBalanceByDate) {

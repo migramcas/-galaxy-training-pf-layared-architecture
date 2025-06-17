@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.repository.converters;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionType;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 

@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.command;
+package com.migramcas.layaed.architecture.finsalud.service.command;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
@@ -10,7 +10,6 @@ import lombok.Data;
 public class CalculateHealthCommand {
 
     private User user;
-
     private GoalId goalId;
 
 }

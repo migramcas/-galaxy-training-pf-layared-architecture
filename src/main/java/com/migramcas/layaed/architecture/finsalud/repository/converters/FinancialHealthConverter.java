@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.repository.converters;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHealth;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.FinancialHealth;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 

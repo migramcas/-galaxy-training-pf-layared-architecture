@@ -1,8 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.application;
 
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHealth;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.Month;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

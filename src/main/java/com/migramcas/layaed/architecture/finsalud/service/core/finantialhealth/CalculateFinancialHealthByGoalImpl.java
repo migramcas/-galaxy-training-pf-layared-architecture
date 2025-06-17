@@ -1,15 +1,15 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.finantialhealth;
 
-import com.migramcas.layaed.architecture.finsalud.command.CalculateHealthCommand;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.FinancialHealth;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHealth;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionType;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.GoalRepository;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.TransactionRepository;
-import com.migramcas.layaed.architecture.finsalud.service.exception.ConsultaNoAutorizadaException;
+import com.migramcas.layaed.architecture.finsalud.service.command.CalculateHealthCommand;
 import com.migramcas.layaed.architecture.finsalud.service.exception.GoalNotFoundException;
-import com.migramcas.layaed.architecture.finsalud.service.exception.SinTransaccionesRegistradasException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.NoTransactionsFoundException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.QueryNotAllowedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 @Service
 public class CalculateFinancialHealthByGoalImpl implements CalculateFinancialHealthByGoal {
 
-    private static BigDecimal ONE_HUNDRED_PERCENT = new BigDecimal(100);
-    private static BigDecimal TWENTY_FIVE_PERCENT = new BigDecimal(25);
-    private static BigDecimal FIFTY_PERCENT = new BigDecimal(50);
-    private static BigDecimal SENVENTY_FIVE_PERCENT = new BigDecimal(75);
+    private static final BigDecimal ONE_HUNDRED_PERCENT = new BigDecimal(100);
+    private static final BigDecimal TWENTY_FIVE_PERCENT = new BigDecimal(25);
+    private static final BigDecimal FIFTY_PERCENT = new BigDecimal(50);
+    private static final BigDecimal SENVENTY_FIVE_PERCENT = new BigDecimal(75);
 
-    GoalRepository goalRepository;
-    TransactionRepository transactionRepository;
+    private final GoalRepository goalRepository;
+    private final TransactionRepository transactionRepository;
 
     @Autowired
     public CalculateFinancialHealthByGoalImpl(GoalRepository goalRepository, TransactionRepository transactionRepository) {
@@ -37,18 +37,18 @@ public class CalculateFinancialHealthByGoalImpl implements CalculateFinancialHea
     }
 
     @Override
-    public FinancialHealth execute(CalculateHealthCommand cmd) throws GoalNotFoundException, ConsultaNoAutorizadaException, SinTransaccionesRegistradasException {
+    public FinancialHealth execute(CalculateHealthCommand cmd) throws GoalNotFoundException, QueryNotAllowedException, NoTransactionsFoundException {
         Goal goal = goalRepository
                 .findById(cmd.getGoalId())
                 .orElseThrow(() -> new GoalNotFoundException("La meta que intenta calcular no existe"));
 
         if (!goal.getUserId().equals(cmd.getUser().getId())) {
-            throw new ConsultaNoAutorizadaException("La meta que intenta consultar no está asociada a este usuario");
+            throw new QueryNotAllowedException("La meta que intenta consultar no está asociada a este usuario");
         }
 
         List<Transaction> transactions = transactionRepository.getAllByGoalId(goal.getId());
         if (transactions.isEmpty()) {
-            throw new SinTransaccionesRegistradasException("No han sido registradas transacciones para esta meta");
+            throw new NoTransactionsFoundException("No han sido registradas transacciones para esta meta");
         }
 
         Map<Boolean, List<Transaction>> transactionsByType = transactions.stream()

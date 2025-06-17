@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.mapper.base;
+package com.migramcas.layaed.architecture.finsalud.mapper;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import org.modelmapper.Converter;
@@ -12,7 +12,7 @@ public class GenericMapper {
     private final ModelMapper modelMapper;
 
     private Converter<GoalId, Integer> goalIdToInteger() {
-        return new Converter<GoalId, Integer>() {
+        return new Converter<>() {
             @Override
             public Integer convert(MappingContext<GoalId, Integer> mappingContext) {
                 return mappingContext.getSource().getValue();

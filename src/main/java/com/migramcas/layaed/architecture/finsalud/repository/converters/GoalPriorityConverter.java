@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.repository.converters;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalPriority;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalPriority;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 

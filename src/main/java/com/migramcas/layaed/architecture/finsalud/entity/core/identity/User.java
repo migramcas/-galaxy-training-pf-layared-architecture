@@ -1,7 +1,7 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.identity;
 
 import com.migramcas.layaed.architecture.finsalud.entity.base.BaseEntity;
-import com.migramcas.layaed.architecture.finsalud.repository.dto.UserDto;
+import com.migramcas.layaed.architecture.finsalud.repository.projection.UserDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

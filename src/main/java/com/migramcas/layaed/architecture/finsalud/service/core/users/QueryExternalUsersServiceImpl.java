@@ -22,8 +22,7 @@ public class QueryExternalUsersServiceImpl implements QueryExternalUsersService 
 
     @Override
     public Set<User> getAll() {
-        return Arrays.stream(externalUsersRepository
-                        .getAllUsers())
+        return Arrays.stream(externalUsersRepository.getAllUsers())
                 .map(User::of)
                 .collect(toSet());
     }

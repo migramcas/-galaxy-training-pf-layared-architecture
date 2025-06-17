@@ -1,7 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.entity.core.application;
 
 import com.migramcas.layaed.architecture.finsalud.entity.base.BaseEntity;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

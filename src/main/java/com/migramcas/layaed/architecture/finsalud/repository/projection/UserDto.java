@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.repository.dto;
+package com.migramcas.layaed.architecture.finsalud.repository.projection;
 
 import java.time.LocalDateTime;
 

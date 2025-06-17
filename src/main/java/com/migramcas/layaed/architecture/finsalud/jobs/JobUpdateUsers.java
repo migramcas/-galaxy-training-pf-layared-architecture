@@ -14,8 +14,8 @@ import java.util.Set;
 @Component
 public class JobUpdateUsers implements Job {
 
-    QueryExternalUsersService queryExternalUsersService;
-    UserRepository userRepository;
+    private final QueryExternalUsersService queryExternalUsersService;
+    private final UserRepository userRepository;
 
     @Autowired
     public JobUpdateUsers(QueryExternalUsersService queryExternalUsersService, UserRepository userRepository) {

@@ -1,7 +1,9 @@
 package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalType;
+import lombok.Getter;
 
+@Getter
 public class CreateSavingGoalDto extends  CreateGoalDto {
 
     public CreateSavingGoalDto() {
@@ -9,10 +11,6 @@ public class CreateSavingGoalDto extends  CreateGoalDto {
     }
 
     private Integer type = GoalType.SAVING.getId();
-
-    public Integer getType() {
-        return type;
-    }
 
     public void setType(Integer type) {
         this.type = type;

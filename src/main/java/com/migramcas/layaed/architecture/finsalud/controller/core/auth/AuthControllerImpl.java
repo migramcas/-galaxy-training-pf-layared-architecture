@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AuthControllerImpl extends BaseController implements AuthController {
 
-    private LoginService<LoginDto, String> loginService;
+    private final LoginService<LoginDto, String> loginService;
 
     @Autowired
     public AuthControllerImpl(LoginService loginService) {

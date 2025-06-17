@@ -3,11 +3,11 @@ package com.migramcas.layaed.architecture.finsalud.service.core.balance;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Transaction;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.TransactionType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.TransactionType;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.GoalRepository;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.TransactionRepository;
-import com.migramcas.layaed.architecture.finsalud.service.core.dto.BalanceDTO;
+import com.migramcas.layaed.architecture.finsalud.service.dto.BalanceDTO;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +22,8 @@ import java.util.stream.Collectors;
 @Service
 public class CalculateBalanceByDateImpl implements CalculateBalanceByDate {
 
-    GoalRepository goalRepository;
-    TransactionRepository transactionRepository;
+    private final GoalRepository goalRepository;
+    private final TransactionRepository transactionRepository;
 
     @Autowired
     public CalculateBalanceByDateImpl(GoalRepository goalRepository, TransactionRepository transactionRepository) {

@@ -1,6 +1,6 @@
 package com.migramcas.layaed.architecture.finsalud.repository.restTemplate;
 
-import com.migramcas.layaed.architecture.finsalud.repository.dto.UserDto;
+import com.migramcas.layaed.architecture.finsalud.repository.projection.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
@@ -15,8 +15,12 @@ public class ExternalUsersRepositoryImpl implements ExternalUsersRepository {
     @Value("${ws.external.api.uri.users}")
     private String usersEndpoint;
 
+    private final RestTemplate restTemplate;
+
     @Autowired
-    private RestTemplate restTemplate;
+    public ExternalUsersRepositoryImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Override
     public UserDto[] getAllUsers() {

@@ -37,8 +37,8 @@ public class SQLServerDatasourceConfiguration {
     }
 
     @Bean(name = "sqlServerEntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder,
-                                                                           @Qualifier("sqlServerDatasource") DataSource dataSource) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(
+            EntityManagerFactoryBuilder builder, @Qualifier("sqlServerDatasource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
                 .packages("com.migramcas.layaed.architecture.finsalud.entity.core.identity")

@@ -1,12 +1,14 @@
 package com.migramcas.layaed.architecture.finsalud.controller.dto.inbound;
 
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.GoalType;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalType;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 
+@Getter
 public class CreateInvestmentGoalDto extends CreateGoalDto {
 
     private Integer type = GoalType.INVESTMENT.getId();
@@ -22,18 +24,6 @@ public class CreateInvestmentGoalDto extends CreateGoalDto {
 
     public CreateInvestmentGoalDto() {
         super();
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public Integer getProjectedMonths() {
-        return projectedMonths;
-    }
-
-    public BigDecimal getPerformacePercentage() {
-        return performacePercentage;
     }
 
     public void setType(Integer type) {

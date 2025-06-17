@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginUserServiceImpl implements LoginService<LoginDto, String> {
 
-    UserRepository userRepository;
-    TokenManager tokenManager;
+    private final UserRepository userRepository;
+    private final TokenManager tokenManager;
 
     public LoginUserServiceImpl(UserRepository userRepository, TokenManager tokenManager) {
         this.userRepository = userRepository;

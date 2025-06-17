@@ -1,4 +1,4 @@
-package com.migramcas.layaed.architecture.finsalud.service.core.dto;
+package com.migramcas.layaed.architecture.finsalud.service.dto;
 
 import lombok.*;
 

@@ -1,9 +1,9 @@
 package com.migramcas.layaed.architecture.finsalud.service.core.goals;
 
-import com.migramcas.layaed.architecture.finsalud.command.GoalCommand;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.Goal;
 import com.migramcas.layaed.architecture.finsalud.entity.core.application.GoalId;
 import com.migramcas.layaed.architecture.finsalud.repository.mysql.GoalRepository;
+import com.migramcas.layaed.architecture.finsalud.service.command.GoalCommand;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Service
 public class CreateGoalServiceImpl implements CreateGoalService {
 
-    GoalRepository goalRepository;
+    private final GoalRepository goalRepository;
 
     @Autowired
     public CreateGoalServiceImpl(GoalRepository goalRepository) {

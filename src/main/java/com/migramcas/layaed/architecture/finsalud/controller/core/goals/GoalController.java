@@ -6,11 +6,11 @@ import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.CreateS
 import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.HealthByGoalDto;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.outbond.DetailInvestmentGoalDto;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.outbond.DetailSavingGoal;
-import com.migramcas.layaed.architecture.finsalud.entity.core.enums.FinancialHealth;
-import com.migramcas.layaed.architecture.finsalud.service.exception.ConsultaNoAutorizadaException;
+import com.migramcas.layaed.architecture.finsalud.entity.core.application.FinancialHealth;
 import com.migramcas.layaed.architecture.finsalud.service.exception.GoalNotFoundException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.NoTransactionsFoundException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.QueryNotAllowedException;
 import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceException;
-import com.migramcas.layaed.architecture.finsalud.service.exception.SinTransaccionesRegistradasException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -60,8 +60,8 @@ public interface GoalController {
             )
     })
     @PostMapping(ENDPOINT_INVESTMENT_GOAL)
-    ResponseEntity<CustomResponse<DetailInvestmentGoalDto>> createInvestmentGoal(@Valid @RequestBody CreateInvestmentGoalDto dto,
-                                                                                 HttpServletRequest request) throws ServiceException;
+    ResponseEntity<CustomResponse<DetailInvestmentGoalDto>> createInvestmentGoal(
+            @Valid @RequestBody CreateInvestmentGoalDto dto, HttpServletRequest request) throws ServiceException;
 
     @Operation(summary = "Calcular salud de una meta")
     @ApiResponses(value = {
@@ -77,6 +77,7 @@ public interface GoalController {
             )
     })
     @PostMapping(ENDPOINT_GOAL_HEALTH)
-    ResponseEntity<CustomResponse<FinancialHealth>> calculateHealthByGoal(@Valid @RequestBody HealthByGoalDto dto,
-                                                                          HttpServletRequest request) throws GoalNotFoundException, ConsultaNoAutorizadaException, SinTransaccionesRegistradasException;
+    ResponseEntity<CustomResponse<FinancialHealth>> calculateHealthByGoal(
+            @Valid @RequestBody HealthByGoalDto dto, HttpServletRequest request)
+            throws GoalNotFoundException, QueryNotAllowedException, NoTransactionsFoundException;
 }
