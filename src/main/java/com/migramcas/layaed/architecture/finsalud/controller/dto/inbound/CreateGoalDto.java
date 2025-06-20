@@ -9,7 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static com.migramcas.layaed.architecture.finsalud.controller.utils.EndpointConstant.DATE_FORMAT;
+import static com.migramcas.layaed.architecture.finsalud.controller.utils.Fomats.DATE_FORMAT;
 
 public abstract  class CreateGoalDto {
 

@@ -1,6 +1,7 @@
-package com.migramcas.layaed.architecture.finsalud.service.core.auth;
+package com.migramcas.layaed.architecture.finsalud.repository.jwt;
 
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
+import com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManager;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,15 +20,14 @@ import static io.jsonwebtoken.Jwts.parser;
 public class TokenManagerJWTImpl implements TokenManager {
 
     @Value("${spring.token.secret.key}")
-    private static String KEY;
+    private String KEY;
 
     public static final String CLAIM_ID = "id";
     public static final String CLAIM_USERNAME = "username";
 
-    private static Key getSigningKey() {
+    private  Key getSigningKey() {
         return Keys.hmacShaKeyFor(KEY.getBytes());
     }
-
 
     private static final long EXPIRATION_TIME_IN_MILISECONDS = 3600000;
 
@@ -53,9 +53,9 @@ public class TokenManagerJWTImpl implements TokenManager {
     public boolean validate(String token) {
         try {
             parser()
-                    .setSigningKey(getSigningKey())
-                    .build()
-                    .parseClaimsJws(token);
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token);
             return true;
         } catch (Exception e) {
             return false;

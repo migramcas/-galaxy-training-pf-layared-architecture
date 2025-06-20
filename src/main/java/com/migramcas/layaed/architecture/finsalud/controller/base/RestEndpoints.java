@@ -4,6 +4,8 @@ public class RestEndpoints {
 
     public static final String ENDPOINT_AUTH_PREFIX = "/auth";
 
+    public static final String ENDPOINT_ACCOUNT_CONFIRM = "/account/confirm";
+
     public static final String ENDPOINT_LOGIN = "/login";
 
     public static final String ENDPOINT_SAVING_GOAL = "/v1/goal/saving";

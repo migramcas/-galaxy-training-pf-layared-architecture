@@ -4,7 +4,7 @@ import com.migramcas.layaed.architecture.finsalud.entity.core.identity.User;
 import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import com.migramcas.layaed.architecture.finsalud.repository.sqlserver.UserRepository;
 import com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManager;
-import com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManagerJWTImpl;
+import com.migramcas.layaed.architecture.finsalud.repository.jwt.TokenManagerJWTImpl;
 import com.migramcas.layaed.architecture.finsalud.service.exception.UserNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import static com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManagerJWTImpl.CLAIM_ID;
+import static com.migramcas.layaed.architecture.finsalud.repository.jwt.TokenManagerJWTImpl.CLAIM_ID;
 
 @Component
 public class SessionMiddleware implements HandlerInterceptor {

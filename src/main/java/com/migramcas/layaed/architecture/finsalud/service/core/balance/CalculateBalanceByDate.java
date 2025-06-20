@@ -6,6 +6,7 @@ import com.migramcas.layaed.architecture.finsalud.service.exception.ServiceExcep
 
 import java.time.LocalDate;
 
+@FunctionalInterface
 public interface CalculateBalanceByDate {
 
     BalanceDTO execute(User user, LocalDate queryDate) throws ServiceException;

@@ -41,7 +41,7 @@ public class GoalControllerImpl extends BaseController implements GoalController
 
     @Override
     public ResponseEntity<CustomResponse<DetailSavingGoal>> createSavingGoal(CreateSavingGoalDto dto,
-                                                                             HttpServletRequest request) throws ServiceException {
+                                                         HttpServletRequest request) throws ServiceException {
 
         User user = (User) request.getAttribute(SESSION_USER_PARAM);
         GoalCommand cmd = GoalCommand.builder()
@@ -59,8 +59,7 @@ public class GoalControllerImpl extends BaseController implements GoalController
 
     @Override
     public ResponseEntity<CustomResponse<DetailInvestmentGoalDto>> createInvestmentGoal(CreateInvestmentGoalDto dto,
-                                                                                        HttpServletRequest request) throws ServiceException {
-
+            HttpServletRequest request) throws ServiceException {
         User user = (User) request.getAttribute(SESSION_USER_PARAM);
         GoalCommand cmd = GoalCommand.builder()
                 .type(GoalType.of(dto.getType()))
