@@ -13,8 +13,12 @@ import java.util.Map;
 public class ParserServiceExceptionHandler {
 
     @ExceptionHandler(ServiceException.class)
-    public ResponseEntity<?> serviceExceptionHandler(ServiceException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<?> invalidLoginExceptionHandler(ServiceException ex) {
+        return getExceptionResponse(HttpStatus.valueOf(ex.getStatus()), ex);
+    }
+
+    private ResponseEntity<?> getExceptionResponse(HttpStatus status, Throwable ex) {
+        return ResponseEntity.status(status)
                 .body(Map.of(
                         "timestamp", LocalDateTime.now(),
                         "message", ex.getMessage()

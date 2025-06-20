@@ -20,7 +20,7 @@ public interface UserControlRepository extends GenericRepository<UserControl, Us
     @Query("SELECT COALESCE(MAX(uc.id.value), 0) + 1 FROM UserControl uc")
     Integer getNextId();
 
-    @Query("select u from UserControl u where u.id = :id")
-    Optional<UserControl> getUserById(@Param("id") UserId id);
+    @Query("select u from UserControl u where u.userId = :userId")
+    Optional<UserControl> getUserById(@Param("userId") UserId userId);
 
 }

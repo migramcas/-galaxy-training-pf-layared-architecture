@@ -5,6 +5,7 @@ import com.migramcas.layaed.architecture.finsalud.entity.core.identity.UserId;
 import com.migramcas.layaed.architecture.finsalud.repository.sqlserver.UserRepository;
 import com.migramcas.layaed.architecture.finsalud.service.core.auth.TokenManager;
 import com.migramcas.layaed.architecture.finsalud.repository.jwt.TokenManagerJWTImpl;
+import com.migramcas.layaed.architecture.finsalud.service.exception.InvalidLoginException;
 import com.migramcas.layaed.architecture.finsalud.service.exception.UserNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,6 +17,8 @@ import static com.migramcas.layaed.architecture.finsalud.repository.jwt.TokenMan
 
 @Component
 public class SessionMiddleware implements HandlerInterceptor {
+
+    private static final String MSG_INVALID_TOKEN = "El token suministrado es inválido";
 
     TokenManager tokenManager = new TokenManagerJWTImpl();
     UserRepository userRepository;
@@ -31,15 +34,19 @@ public class SessionMiddleware implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws UserNotFoundException {
+            throws UserNotFoundException, InvalidLoginException {
         if (request.getRequestURI().startsWith("/auth/")) {
             return true;
         }
 
         String token = request.getHeader(AUTHORIZATION_HEADER).replaceAll("Bearer ", "");
         boolean hasAccess = tokenManager.validate(token);
+        
+        if (!hasAccess) {
+            throw new InvalidLoginException(MSG_INVALID_TOKEN);
+        }
 
-        if (hasAccess) {
+        if (request.getAttribute(SESSION_USER_PARAM) == null) {
             UserId userId = UserId.of(Integer.valueOf(tokenManager.getPayload(token).get(CLAIM_ID)));
             User user = userRepository
                     .getUserById(userId)
@@ -47,6 +54,6 @@ public class SessionMiddleware implements HandlerInterceptor {
             request.setAttribute(SESSION_USER_PARAM, user);
         }
 
-        return hasAccess;
+        return true;
     }
 }

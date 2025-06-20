@@ -2,6 +2,9 @@ package com.migramcas.layaed.architecture.finsalud.controller.core.auth;
 
 import com.migramcas.layaed.architecture.finsalud.controller.base.CustomResponse;
 import com.migramcas.layaed.architecture.finsalud.controller.dto.inbound.LoginDto;
+import com.migramcas.layaed.architecture.finsalud.service.exception.AccountDisabledException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.AccountEnabledPreviouslyException;
+import com.migramcas.layaed.architecture.finsalud.service.exception.InvalidLoginException;
 import com.migramcas.layaed.architecture.finsalud.service.exception.UserNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,7 +32,7 @@ public interface AuthController {
             )
     })
     @PostMapping(value = ENDPOINT_ACCOUNT_CONFIRM)
-    ResponseEntity<CustomResponse<String>> activateAccount(@Valid @RequestBody LoginDto dto) throws UserNotFoundException;
+    ResponseEntity<CustomResponse<String>> activateAccount(@Valid @RequestBody LoginDto dto) throws UserNotFoundException, AccountEnabledPreviouslyException;
 
 
     @Operation(summary = "Iniciar sesión")
@@ -41,7 +44,7 @@ public interface AuthController {
             )
     })
     @PostMapping(value = ENDPOINT_LOGIN)
-    ResponseEntity<CustomResponse<String>> loginUser(@Valid @RequestBody LoginDto dto) throws UserNotFoundException;
+    ResponseEntity<CustomResponse<String>> loginUser(@Valid @RequestBody LoginDto dto) throws UserNotFoundException, AccountDisabledException, InvalidLoginException;
 
 
 }
