@@ -35,13 +35,14 @@ public class SessionMiddleware implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws UserNotFoundException, InvalidLoginException {
-        if (request.getRequestURI().startsWith("/auth/")) {
+        String requestURI = request.getRequestURI();
+        if (requestURI.startsWith("/auth/")||requestURI.contains("swagger")) {
             return true;
         }
 
         String token = request.getHeader(AUTHORIZATION_HEADER).replaceAll("Bearer ", "");
         boolean hasAccess = tokenManager.validate(token);
-        
+
         if (!hasAccess) {
             throw new InvalidLoginException(MSG_INVALID_TOKEN);
         }
